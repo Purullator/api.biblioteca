@@ -130,6 +130,7 @@ class JsonLibroController extends Controller
                     $response->message = "$libro->titulo no se puede actualizar. ";
                     $response->data[] = "No se indicó el ID a actualizar. ";
                 } else {
+
                     try {
                         $libro->update();
                         $response->message .= "$libro->titulo actualizado correctamente. ";
