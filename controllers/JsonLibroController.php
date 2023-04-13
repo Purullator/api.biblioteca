@@ -40,6 +40,9 @@ class JsonLibroController extends Controller
 
     public function delete(int $id = 0)
     {
+        Auth::oneRole(['ROLE_EDITOR', 'ROLE_ADMIN']);
+
+        $this->checkCsrfToken(apache_request_headers()['csrf_token'] ?? '');
 
         if (empty($id))
             throw new ApiException('No se indicó el libro a borrar.');
@@ -54,7 +57,7 @@ class JsonLibroController extends Controller
 
         $response = new stdClass();
         $response->status = "Ok";
-        $response->message = "Borrado del $libro->titulo resultados.";
+        $response->message = "Borrado del libro $libro->titulo correcto.";
         $response->data = [$libro];
 
         echo JSON::encode($response);
