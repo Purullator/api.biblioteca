@@ -1,2 +1,2 @@
 # api.biblioteca
- Alls Secs Mai Couen
+API RESTFUL which connects to biblioteca's database
